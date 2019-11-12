@@ -36,7 +36,12 @@ public class LoginController {
 
     @PostMapping("/registered")
     public Response registered(@RequestBody UserInfo userInfo){
-        return Response.success(loginService.register(userInfo));
+        return loginService.register(userInfo);
+    }
+    @PostMapping
+    public Response login(@RequestBody UserInfo userInfo){
+
+        return loginService.loginUser(userInfo);
     }
 
 }

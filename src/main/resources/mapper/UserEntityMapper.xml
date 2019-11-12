@@ -4,13 +4,19 @@
 
 
     <insert id="insertUser">
-        insert into user  (username,password,email,user.code,status)
-        values (#{userInfo.username,jdbcType=VARCHAR},#{userInfo.password,jdbcType=VARCHAR},#{userInfo.email,jdbcType=VARCHAR},#{userInfo.code,jdbcType=VARCHAR},#{userInfo.status,jdbcType=INTEGER})
+        insert into user  (email,user.code,status)
+        values (#{userInfo.email,jdbcType=VARCHAR},#{userInfo.code,jdbcType=VARCHAR},#{userInfo.status,jdbcType=INTEGER})
     </insert>
     <select id="check" resultType="java.lang.Integer">
-        select id from user where username=#{user.username} and code=#{user.code}
+        select id from user where email=#{user.email} and code=#{user.code}
     </select>
     <update id="updateStatus">
-        update user set status = 1 where username=#{user.username}
+        update user set status = 1,password=#{user.password} where email=#{user.email}
+    </update>
+    <select id="selectIdByEmail" resultType="java.lang.Integer">
+        select id from user where email=#{email}
+    </select>
+    <update id="updatePassword">
+        update user set password=#{passwordVO.newPwd} where id =#{param1.id} and password=#{param1.oldPwd}
     </update>
 </mapper>

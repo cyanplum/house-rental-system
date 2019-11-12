@@ -1,5 +1,6 @@
 package house.rental.system.utils;
 
+import java.util.Random;
 import java.util.UUID;
 
 /**
@@ -15,5 +16,14 @@ import java.util.UUID;
 public class UUIDUtils {
     public static String getUUID(){
         return UUID.randomUUID().toString().replace("-","");
+    }
+
+    public static String randomCode() {
+        StringBuilder str = new StringBuilder();
+        Random random = new Random();
+        for (int i = 0; i < 6; i++) {
+            str.append(random.nextInt(10));
+        }
+        return str.toString();
     }
 }

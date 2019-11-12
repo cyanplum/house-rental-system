@@ -35,13 +35,16 @@ public class LoginService {
 
                 userMapper.updateStatus(user);
             }
-            return Response.success("注册成功");
+            return Response.success("1");
         }
         else{
             //获取激活码
-            user.setCode(UUIDUtils.getUUID()+UUIDUtils.getUUID());
+            user.setCode(UUIDUtils.randomCode());
             String code = user.getCode();
             user.setStatus(0);
+            if (userMapper.selectIdByEmail(user.getEmail())!=null){
+                return Response.fail("存在该用户！");
+            }
             userMapper.insertUser(user);
             System.out.println("code:"+code);
             //主题
@@ -52,12 +55,12 @@ public class LoginService {
             String context = code;
             //发送激活邮件
             emailService.sendSimpleMail(user.getEmail(),subject,context);
-            return Response.success(code);
+            return Response.success("1");
         }
-
     }
 
+    public Response loginUser(UserInfo userInfo) {
 
-    /*public Response loginUser(UserInfo userInfo) {
-    }*/
+        return Response.success();
+    }
 }
