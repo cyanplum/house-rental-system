@@ -7,6 +7,7 @@ import house.rental.system.dao.UserMapper;
 import house.rental.system.model.entity.UserInfo;
 import house.rental.system.model.result.UserInfoResult;
 import house.rental.system.exceptions.ServerException;
+import house.rental.system.utils.JSONResult;
 import house.rental.system.utils.UUIDUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -32,13 +33,13 @@ public class LoginService {
     UserMapper userMapper;
 
     @Transactional(rollbackFor = Exception.class)
-    public Response register(UserInfo user) {
+    public JSONResult register(UserInfo user) {
         if (user.getCode()!= null) {
             if (userMapper.check(user)!=null){
 
                 userMapper.updateStatus(user);
             }
-            return Response.success("1");
+            return JSONResult.success(1);
         }
         else{
             //获取激活码
@@ -46,7 +47,7 @@ public class LoginService {
             String code = user.getCode();
             user.setStatus(0);
             if (userMapper.selectIdByEmail(user.getEmail())!=null){
-                return Response.fail("存在该用户！");
+                return JSONResult.failMsg("存在该用户！");
             }
             userMapper.insertUser(user);
             System.out.println("code:"+code);
@@ -58,18 +59,18 @@ public class LoginService {
             String context = code;
             //发送激活邮件
             emailService.sendSimpleMail(user.getEmail(),subject,context);
-            return Response.success("1");
+            return JSONResult.success("1");
         }
     }
 
-    public Response<UserInfoResult> loginUser(UserInfo userInfo) {
+    public JSONResult<UserInfoResult> loginUser(UserInfo userInfo) {
 
         if (userMapper.checkUser(userInfo) != null) {
-            return Response.success(userMapper.selectUserInfoResult(userInfo));
+            return JSONResult.success(userMapper.selectUserInfoResult(userInfo));
         } else {
            new ServerException("登录失败！");
         }
 
-        return Response.success(null);
+        return JSONResult.success(null);
     }
 }
