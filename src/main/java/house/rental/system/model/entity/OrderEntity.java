@@ -3,7 +3,6 @@ package house.rental.system.model.entity;
 import com.baomidou.mybatisplus.annotation.TableName;
 import com.baomidou.mybatisplus.annotation.IdType;
 import com.baomidou.mybatisplus.annotation.TableId;
-import java.time.LocalDateTime;
 import com.baomidou.mybatisplus.annotation.TableField;
 import java.io.Serializable;
 import io.swagger.annotations.ApiModel;
@@ -17,7 +16,7 @@ import lombok.experimental.Accessors;
  * </p>
  *
  * @author qmw
- * @since 2019-11-12
+ * @since 2019-11-19
  */
 @Data
 @EqualsAndHashCode(callSuper = false)
@@ -31,17 +30,11 @@ public class OrderEntity implements Serializable {
     @TableId(value = "id", type = IdType.AUTO)
     private Integer id;
 
-    @TableField("user_id")
-    private Integer userId;
+    @TableField("owner_id")
+    private Integer ownerId;
 
     @TableField("house_id")
     private Integer houseId;
-
-    @TableField("start_time")
-    private LocalDateTime startTime;
-
-    @TableField("end_time")
-    private LocalDateTime endTime;
 
 
 }

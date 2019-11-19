@@ -1,7 +1,5 @@
 package house.rental.system;
 
-import cn.windyrjc.security.core.service.TokenService;
-import cn.windyrjc.security.web.annotation.EnableSimpleCors;
 import cn.windyrjc.security.web.annotation.EnableWindySecurity;
 import org.mybatis.spring.annotation.MapperScan;
 import org.springframework.boot.SpringApplication;

@@ -14,7 +14,7 @@ import org.springframework.transaction.annotation.EnableTransactionManagement;
 
 @Configuration
 @EnableTransactionManagement
-@MapperScan("house.rental.system.dao")
+@MapperScan("house.rental.system.aa.dao")
 public class MybatisPlusConfig {
 
     /*public ISqlInjector sqlInjector() {

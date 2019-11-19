@@ -9,7 +9,7 @@ import com.baomidou.mybatisplus.core.mapper.BaseMapper;
  * </p>
  *
  * @author qmw
- * @since 2019-11-12
+ * @since 2019-11-19
  */
 public interface GuestRoomMapper extends BaseMapper<GuestRoomEntity> {
 

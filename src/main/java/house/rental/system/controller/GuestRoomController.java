@@ -1,13 +1,17 @@
 package house.rental.system.controller;
 
 
-import cn.windyrjc.utils.response.Response;
-import cn.windyrjc.utils.response.ResponsePage;
-import house.rental.system.model.entity.UserInfo;
 import house.rental.system.model.result.GuestRoomResult;
 import house.rental.system.service.GuestRoomService;
+import house.rental.system.utils.JSONResult;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.web.bind.annotation.*;
+import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.RequestMapping;
+
+import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.bind.annotation.RestController;
+
+import java.util.List;
 
 /**
  * <p>
@@ -15,19 +19,19 @@ import org.springframework.web.bind.annotation.*;
  * </p>
  *
  * @author qmw
- * @since 2019-11-12
+ * @since 2019-11-19
  */
 @RestController
 @RequestMapping("/guestroom")
 public class GuestRoomController {
-
     @Autowired
     GuestRoomService guestRoomService;
 
     @GetMapping
-    public ResponsePage<GuestRoomResult> index(@RequestParam("id") Integer id,
-                                               @RequestParam(value = "pn",defaultValue = "1")Integer pn){
+    public JSONResult<List<GuestRoomResult>> index(@RequestParam("id") Integer id){
 
-        return guestRoomService.index(id,pn);
+        List<GuestRoomResult> guestRoomResultList = guestRoomService.index(id);
+        return JSONResult.failMsg("失败");
+
     }
 }
