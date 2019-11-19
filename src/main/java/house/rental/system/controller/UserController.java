@@ -26,10 +26,10 @@ public class UserController {
 
     @Autowired
     UserService service;
-    
-    @PostMapping
+
+    @PostMapping("/updatePwd")
     public Response updatePassword(@RequestBody PasswordVO passwordVO){
-        
+
         return service.updatePassword(passwordVO);
     }
 }

@@ -2,6 +2,7 @@ package house.rental.system.controller;
 
 import cn.windyrjc.utils.response.Response;
 import house.rental.system.model.entity.UserInfo;
+import house.rental.system.model.result.UserInfoResult;
 import house.rental.system.service.LoginService;
 import house.rental.system.utils.PropertiesUtil;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -39,8 +40,7 @@ public class LoginController {
         return loginService.register(userInfo);
     }
     @PostMapping
-    public Response login(@RequestBody UserInfo userInfo){
-
+    public Response<UserInfoResult> login(@RequestBody UserInfo userInfo){
         return loginService.loginUser(userInfo);
     }
 

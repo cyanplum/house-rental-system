@@ -3,7 +3,9 @@ package house.rental.system.service;
 //import cn.windyrjc.utils.response.Response;
 import cn.windyrjc.utils.response.Response;
 import house.rental.system.dao.UserMapper;
+import house.rental.system.exceptions.ServerException;
 import house.rental.system.model.entity.UserInfo;
+import house.rental.system.model.result.UserInfoResult;
 import house.rental.system.utils.UUIDUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -59,8 +61,14 @@ public class LoginService {
         }
     }
 
-    public Response loginUser(UserInfo userInfo) {
+    public Response<UserInfoResult> loginUser(UserInfo userInfo) {
 
-        return Response.success();
+        if (userMapper.checkUser(userInfo) != null) {
+            return Response.success(userMapper.selectUserInfoResult(userInfo));
+        } else {
+           new ServerException("登录失败！");
+        }
+
+        return Response.success(null);
     }
 }
