@@ -30,8 +30,7 @@ public class GuestRoomController {
     @GetMapping
     public JSONResult<List<GuestRoomResult>> index(@RequestParam("id") Integer id){
 
-        List<GuestRoomResult> guestRoomResultList = guestRoomService.index(id);
-        return JSONResult.failMsg("失败");
+        return JSONResult.success(guestRoomService.index(id));
 
     }
 }

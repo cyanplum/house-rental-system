@@ -1,11 +1,15 @@
 package house.rental.system.dao;
 
+import house.rental.system.model.dto.LeaseDto;
 import house.rental.system.model.entity.LeaseEntity;
 import com.baomidou.mybatisplus.core.mapper.BaseMapper;
+import org.apache.ibatis.annotations.Param;
+
+import java.util.List;
 
 /**
  * <p>
- *  Mapper 接口
+ * Mapper 接口
  * </p>
  *
  * @author qmw
@@ -13,4 +17,9 @@ import com.baomidou.mybatisplus.core.mapper.BaseMapper;
  */
 public interface LeaseMapper extends BaseMapper<LeaseEntity> {
 
+    List<LeaseDto> indexOwn(@Param("id") Integer id);
+
+    List<Integer> checkId(@Param("id") Integer id);
+
+    List<LeaseDto> indexTenant(@Param("id") Integer id);
 }
