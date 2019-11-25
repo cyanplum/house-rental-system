@@ -26,4 +26,6 @@ public class OrderDto {
     private String address;
 
     private String money;
+
+    private String description;
 }

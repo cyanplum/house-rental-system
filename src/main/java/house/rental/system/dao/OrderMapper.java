@@ -22,4 +22,5 @@ public interface OrderMapper extends BaseMapper<OrderEntity> {
 
     List<OrderDto> index(@Param("id") Integer id, @Param("title") String title);
 
+    Integer insertOne(@Param("owner_id") Integer owner_id, @Param("id") Integer id);
 }

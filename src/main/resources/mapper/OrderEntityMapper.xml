@@ -6,7 +6,7 @@
         select house_rental.order.house_id from house_rental.order where id =#{commission_id}
     </select>
     <select id="index" resultType="house.rental.system.model.dto.OrderDto">
-        select id,user_id,title,description,money
+        select id,user_id,title,description,money,area,address
         from guest_room as ord
         where ord.status=1
         <if test="id != null">
@@ -16,4 +16,7 @@
             and title like concat('%',#{title},'%')
         </if>
     </select>
+    <insert id="insertOne">
+        insert into house_rental.order (owner_id,house_id) values (#{owner_id},#{id})
+    </insert>
 </mapper>

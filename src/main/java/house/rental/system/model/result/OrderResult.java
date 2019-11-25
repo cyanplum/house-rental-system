@@ -27,4 +27,6 @@ public class OrderResult {
 
     private String rental;
 
+    private String description;
+
 }
