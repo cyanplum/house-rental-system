@@ -1,9 +1,6 @@
-package house.rental.system.model.result;
+package house.rental.system.model.vo;
 
 import lombok.Data;
-
-import javax.swing.*;
-import java.time.LocalDateTime;
 
 /**
  * @author create by:
@@ -13,18 +10,15 @@ import java.time.LocalDateTime;
  * *  | | | |     / / |__/ | |    | | /  | / /
  * * | |_| |_    / /       | |   | |/   |/ /
  * * \_______|  /_/        |_|  |___/|___/
- * @date 2019/11/2120:38
+ * @date 2019/11/1221:22
  */
 @Data
-public class LeaseResult {
-
+public class PasswordVo {
+    
     private Integer id;
-
-    private Integer commission_id;
-
-    private Integer tenant_id;
-
-    private LocalDateTime time;
-
-    private String months;
+    
+    private String oldPwd;
+    
+    private String newPwd;
+    
 }

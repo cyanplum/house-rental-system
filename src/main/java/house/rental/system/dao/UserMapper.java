@@ -2,7 +2,7 @@ package house.rental.system.dao;
 
 import house.rental.system.model.entity.UserInfo;
 import house.rental.system.model.result.UserInfoResult;
-import house.rental.system.model.vo.PasswordVO;
+import house.rental.system.model.vo.PasswordVo;
 import house.rental.system.model.entity.UserEntity;
 import com.baomidou.mybatisplus.core.mapper.BaseMapper;
 import org.apache.ibatis.annotations.Param;
@@ -24,7 +24,7 @@ public interface UserMapper extends BaseMapper<UserEntity> {
 
     Integer selectIdByEmail(@Param("email") String email);
 
-    int updatePassword(@Param("passwordVO") PasswordVO passwordVO);
+    int updatePassword(@Param("passwordVO") PasswordVo passwordVO);
 
     Integer checkUser(@Param("userInfo") UserInfo userInfo);
 

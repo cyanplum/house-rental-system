@@ -10,5 +10,5 @@ package house.rental.system.model.vo;
  * * \_______|  /_/        |_|  |___/|___/
  * @date 2019/11/1218:33
  */
-public class UserVO {
+public class UserVo {
 }

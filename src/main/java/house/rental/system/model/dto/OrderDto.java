@@ -1,4 +1,4 @@
-package house.rental.system.model.vo;
+package house.rental.system.model.dto;
 
 import lombok.Data;
 
@@ -10,15 +10,20 @@ import lombok.Data;
  * *  | | | |     / / |__/ | |    | | /  | / /
  * * | |_| |_    / /       | |   | |/   |/ /
  * * \_______|  /_/        |_|  |___/|___/
- * @date 2019/11/1221:22
+ * @date 2019/11/2517:00
  */
 @Data
-public class PasswordVO {
-    
+public class OrderDto {
+
     private Integer id;
-    
-    private String oldPwd;
-    
-    private String newPwd;
-    
+
+    private Integer userId;
+
+    private String title;
+
+    private String area;
+
+    private String address;
+
+    private String money;
 }

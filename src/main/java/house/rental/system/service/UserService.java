@@ -2,7 +2,7 @@ package house.rental.system.service;
 
 import cn.windyrjc.utils.response.Response;
 import house.rental.system.dao.UserMapper;
-import house.rental.system.model.vo.PasswordVO;
+import house.rental.system.model.vo.PasswordVo;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -22,7 +22,7 @@ public class UserService {
     @Autowired
     UserMapper userMapper;
 
-    public Response updatePassword(PasswordVO passwordVO) {
+    public Response updatePassword(PasswordVo passwordVO) {
         return userMapper.updatePassword(passwordVO)==1 ? Response.success() : Response.fail("修改密码失败") ;
     }
 }

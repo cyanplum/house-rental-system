@@ -2,4 +2,18 @@
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="house.rental.system.dao.OrderMapper">
 
+    <select id="selectHouseId" resultType="java.lang.Integer">
+        select house_rental.order.house_id from house_rental.order where id =#{commission_id}
+    </select>
+    <select id="index" resultType="house.rental.system.model.dto.OrderDto">
+        select id,user_id,title,description,money
+        from guest_room as ord
+        where ord.status=1
+        <if test="id != null">
+            and ord.user_id=#{id}
+        </if>
+        <if test="title != null and title != ''">
+            and title like concat('%',#{title},'%')
+        </if>
+    </select>
 </mapper>

@@ -45,8 +45,11 @@ public class GuestRoomEntity implements Serializable {
     @TableField("user_id")
     private Integer userId;
 
-    @TableField("image_url")
-    private String imageUrl;
+    @TableField("title")
+    private String title;
+
+    @TableField("description")
+    private String description;
 
 
 }

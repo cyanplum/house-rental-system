@@ -2,9 +2,6 @@ package house.rental.system.model.result;
 
 import lombok.Data;
 
-import javax.swing.*;
-import java.time.LocalDateTime;
-
 /**
  * @author create by:
  * *      ____        ___  ___       __          __
@@ -13,18 +10,21 @@ import java.time.LocalDateTime;
  * *  | | | |     / / |__/ | |    | | /  | / /
  * * | |_| |_    / /       | |   | |/   |/ /
  * * \_______|  /_/        |_|  |___/|___/
- * @date 2019/11/2120:38
+ * @date 2019/11/2516:58
  */
 @Data
-public class LeaseResult {
+public class OrderResult {
 
     private Integer id;
 
-    private Integer commission_id;
+    private Integer owner_id;
 
-    private Integer tenant_id;
+    private String title;
 
-    private LocalDateTime time;
+    private String area;
 
-    private String months;
+    private String address;
+
+    private String rental;
+
 }

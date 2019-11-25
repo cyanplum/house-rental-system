@@ -1,8 +1,7 @@
-package house.rental.system.model.result;
+package house.rental.system.model.vo;
 
 import lombok.Data;
 
-import javax.swing.*;
 import java.time.LocalDateTime;
 
 /**
@@ -13,10 +12,10 @@ import java.time.LocalDateTime;
  * *  | | | |     / / |__/ | |    | | /  | / /
  * * | |_| |_    / /       | |   | |/   |/ /
  * * \_______|  /_/        |_|  |___/|___/
- * @date 2019/11/2120:38
+ * @date 2019/11/2215:56
  */
 @Data
-public class LeaseResult {
+public class LeaseVo {
 
     private Integer id;
 
@@ -24,7 +23,9 @@ public class LeaseResult {
 
     private Integer tenant_id;
 
-    private LocalDateTime time;
+    private Integer house_id;
+
+    private Long time;
 
     private String months;
 }
