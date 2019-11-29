@@ -30,11 +30,7 @@ public class LoginController {
     @Autowired
     LoginService loginService;
 
-
-    @GetMapping
-    public Response index(){
-        return Response.success();
-    }
+    
 
     @PostMapping("/registered")
     public JSONResult registered(@RequestBody UserInfo userInfo){
