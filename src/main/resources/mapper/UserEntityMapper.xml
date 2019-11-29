@@ -18,9 +18,9 @@
         update user set password=#{passwordVO.newPwd} where id =#{param1.id} and password=#{param1.oldPwd}
     </update>
     <select id="checkUser" resultType="java.lang.Integer">
-        select  id from user where email=#{userInfo.email} and password=#{userInfo.password} and status=1
+        select  id from user where email=#{email} and password=#{password} and status=1
     </select>
     <select id="selectUserInfoResult" resultType="house.rental.system.model.result.UserInfoResult">
-        select id,username,email,phone from user where email=#{userInfo.email} and password=#{userInfo.password} and status=1
+        select id,username,email,phone from user where email=#{email} and password=#{password} and status=1
     </select>
 </mapper>

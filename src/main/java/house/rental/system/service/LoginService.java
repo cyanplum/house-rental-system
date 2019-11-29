@@ -63,10 +63,10 @@ public class LoginService {
         }
     }
 
-    public JSONResult<UserInfoResult> loginUser(UserInfo userInfo) {
+    public JSONResult<UserInfoResult> loginUser(String email,String password) {
 
-        if (userMapper.checkUser(userInfo) != null) {
-            return JSONResult.success(userMapper.selectUserInfoResult(userInfo));
+        if (userMapper.checkUser(email,password) != null) {
+            return JSONResult.success(userMapper.selectUserInfoResult(email,password));
         } else {
            new ServerException("登录失败！");
         }

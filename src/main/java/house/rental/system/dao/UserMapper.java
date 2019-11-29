@@ -9,7 +9,7 @@ import org.apache.ibatis.annotations.Param;
 
 /**
  * <p>
- *  Mapper 接口
+ * Mapper 接口
  * </p>
  *
  * @author qmw
@@ -26,7 +26,7 @@ public interface UserMapper extends BaseMapper<UserEntity> {
 
     int updatePassword(@Param("passwordVO") PasswordVo passwordVO);
 
-    Integer checkUser(@Param("userInfo") UserInfo userInfo);
+    Integer checkUser(@Param("email") String email, @Param("password") String password);
 
-    UserInfoResult selectUserInfoResult(@Param("userInfo") UserInfo userInfo);
+    UserInfoResult selectUserInfoResult(@Param("email") String email, @Param("password") String password);
 }

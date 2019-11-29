@@ -40,9 +40,9 @@ public class LoginController {
     public JSONResult registered(@RequestBody UserInfo userInfo){
         return loginService.register(userInfo);
     }
-    @PostMapping
-    public JSONResult<UserInfoResult> login(@RequestBody UserInfo userInfo){
-        return loginService.loginUser(userInfo);
+    @GetMapping
+    public JSONResult<UserInfoResult> login(@RequestParam("email") String email,@RequestParam("password") String password){
+        return loginService.loginUser(email,password);
     }
 
 }
