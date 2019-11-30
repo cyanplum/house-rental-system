@@ -30,12 +30,13 @@ public class LoginController {
     @Autowired
     LoginService loginService;
 
-    
+
 
     @PostMapping("/registered")
     public JSONResult registered(@RequestBody UserInfo userInfo){
         return loginService.register(userInfo);
     }
+
     @GetMapping
     public JSONResult<UserInfoResult> login(@RequestParam("email") String email,@RequestParam("password") String password){
         return loginService.loginUser(email,password);

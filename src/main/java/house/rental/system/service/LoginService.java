@@ -68,9 +68,8 @@ public class LoginService {
         if (userMapper.checkUser(email,password) != null) {
             return JSONResult.success(userMapper.selectUserInfoResult(email,password));
         } else {
-           new ServerException("登录失败！");
+           return JSONResult.failMsg("登录失败");
         }
 
-        return JSONResult.success(null);
     }
 }
