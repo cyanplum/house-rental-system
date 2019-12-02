@@ -1,5 +1,6 @@
 package house.rental.system.utils;
 
+import com.alibaba.fastjson.JSON;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 
@@ -36,7 +37,10 @@ public class JSONResult<T> extends ResponseEntity<Message> {
     }
 
     public static <T> JSONResult<T> failMsg(String msg) {
-        return new JSONResult("404", msg);
+        return new JSONResult("404", msg, JSON.toJSON(new Object()));
+    }
+    public static <T> JSONResult<T> failMsg(String msg,T data) {
+        return new JSONResult("404", msg,data);
     }
 
     public static <T> JSONResult<T> custom(String code, String msg, T data) {

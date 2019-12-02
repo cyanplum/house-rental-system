@@ -31,7 +31,7 @@ public class OrderController {
 
 
     @GetMapping
-    public JSONResult<List<OrderResult>> index(@RequestParam(value = "id",required = false) Integer id,
+    public JSONResult<List<OrderResult>> index(@RequestParam(value = "ownerId",required = false) Integer id,
                                                @RequestParam(value = "title",required = false)String title ){
         return orderService.index(id,title);
     }
