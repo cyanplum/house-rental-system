@@ -17,7 +17,7 @@ public class OrderResult {
 
     private Integer id;
 
-    private Integer owner_id;
+    private Integer user_id;
 
     private String title;
 

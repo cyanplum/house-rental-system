@@ -52,10 +52,10 @@ public class GuestRoomService {
     public JSONResult store(OrderResult orderResult) {
         GuestRoomEntity entity = DataUtil.convert(orderResult,GuestRoomEntity.class);
         entity.setMoney(orderResult.getRental());
-        entity.setUserId(orderResult.getOwner_id());
+        entity.setUserId(orderResult.getUser_id());
         entity.setStatus(0);
         guestRoomMapper.insert(entity);
 
-        return JSONResult.success(orderMapper.insertOne(orderResult.getOwner_id(),entity.getId()));
+        return JSONResult.success(orderMapper.insertOne(orderResult.getUser_id(),entity.getId()));
     }
 }

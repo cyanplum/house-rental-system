@@ -30,7 +30,7 @@ public class OrderService {
 
         List<OrderResult> results = orderMapper.index(id,title).stream().map(p->{
             OrderResult result = DataUtil.convert(p,OrderResult.class);
-            result.setOwner_id(p.getUserId());
+            result.setUser_id(p.getUserId());
             result.setRental(p.getMoney());
             return result;
         }).collect(Collectors.toList());
