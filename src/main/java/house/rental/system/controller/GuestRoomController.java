@@ -25,7 +25,7 @@ public class GuestRoomController {
     GuestRoomService guestRoomService;
 
     @GetMapping
-    public JSONResult<List<GuestRoomResult>> index(@RequestParam("id") Integer id){
+    public JSONResult<List<GuestRoomResult>> index(@RequestParam("tenantId") Integer id){
 
         return JSONResult.success(guestRoomService.index(id));
 

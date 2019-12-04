@@ -26,7 +26,7 @@ public class LeaseController {
     LeaseService leaseService;
 
     @GetMapping
-    public JSONResult<List<LeaseResult>> index(@RequestParam("id") Integer id){
+    public JSONResult<List<LeaseResult>> index(@RequestParam("ownerId") Integer id){
 
         return leaseService.index(id);
     }
