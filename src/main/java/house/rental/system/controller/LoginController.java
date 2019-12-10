@@ -23,7 +23,7 @@ import org.springframework.web.bind.annotation.*;
  * @date 2019/11/1215:05
  */
 @RestController
-@RequestMapping("/login")
+@RequestMapping("/users")
 @EnableConfigurationProperties(PropertiesUtil.class)
 public class LoginController {
 
@@ -32,7 +32,7 @@ public class LoginController {
 
 
 
-    @PostMapping("/registered")
+    @PostMapping
     public JSONResult registered(@RequestBody UserInfo userInfo){
         return loginService.register(userInfo);
     }

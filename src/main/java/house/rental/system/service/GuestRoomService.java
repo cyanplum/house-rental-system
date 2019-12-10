@@ -53,7 +53,7 @@ public class GuestRoomService {
         GuestRoomEntity entity = DataUtil.convert(orderResult,GuestRoomEntity.class);
         entity.setMoney(orderResult.getRental());
         entity.setUserId(orderResult.getUser_id());
-        entity.setStatus(0);
+        entity.setStatus(1);
         guestRoomMapper.insert(entity);
 
         return JSONResult.success(orderMapper.insertOne(orderResult.getUser_id(),entity.getId()));

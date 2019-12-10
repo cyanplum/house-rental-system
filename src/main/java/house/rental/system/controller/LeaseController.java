@@ -25,8 +25,14 @@ public class LeaseController {
     @Autowired
     LeaseService leaseService;
 
-    @GetMapping
-    public JSONResult<List<LeaseResult>> index(@RequestParam("ownerId") Integer id){
+    @GetMapping("/owner")
+    public JSONResult<List<LeaseResult>> indexOwner(@RequestParam("ownerId") Integer id){
+
+        return leaseService.index(id);
+    }
+
+    @GetMapping("/tenant")
+    public JSONResult<List<LeaseResult>> indexTenant(@RequestParam("tenantId") Integer id){
 
         return leaseService.index(id);
     }
