@@ -20,7 +20,7 @@ public interface UserMapper extends BaseMapper<UserEntity> {
 
     Integer check(@Param("user") UserInfo user);
 
-    void updateStatus(@Param("user") UserInfo user);
+    int updateStatus(@Param("user") UserInfo user);
 
     Integer selectIdByEmail(@Param("email") String email);
 

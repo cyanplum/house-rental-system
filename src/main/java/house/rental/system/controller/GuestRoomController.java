@@ -12,7 +12,7 @@ import java.util.List;
 
 /**
  * <p>
- *  前端控制器
+ * 前端控制器
  * </p>
  *
  * @author qmw
@@ -25,7 +25,7 @@ public class GuestRoomController {
     GuestRoomService guestRoomService;
 
     @GetMapping
-    public JSONResult<List<GuestRoomResult>> index(@RequestParam("tenantId") Integer id){
+    public JSONResult<List<GuestRoomResult>> index(@RequestParam("tenantId") Integer id) {
 
         return JSONResult.success(guestRoomService.index(id));
 

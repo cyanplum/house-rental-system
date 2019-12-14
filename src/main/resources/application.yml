@@ -4,15 +4,15 @@ spring:
     username: root
     password: 123456
     driver-class-name: com.mysql.cj.jdbc.Driver
-#  thymeleaf:
-#    cache: false
-#    prefix: classpath:/templates/
-#    check-template-location: true
-#    suffix: .html
-#    encoding: UTF-8
-#    servlet:
-#      content-type: text/html
-#    mode: HTML5
+  #  thymeleaf:
+  #    cache: false
+  #    prefix: classpath:/templates/
+  #    check-template-location: true
+  #    suffix: .html
+  #    encoding: UTF-8
+  #    servlet:
+  #      content-type: text/html
+  #    mode: HTML5
   resources:
     static-locations: classpath:/templates/,classpath:/META-INF/resources/,classpath:/resources/,classpath:/static/,classpath:/static/css/
   mvc:

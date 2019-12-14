@@ -2,8 +2,9 @@
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="house.rental.system.dao.UserMapper">
     <insert id="insertUser">
-        insert into user  (email,user.code,status)
-        values (#{userInfo.email,jdbcType=VARCHAR},#{userInfo.code,jdbcType=VARCHAR},#{userInfo.status,jdbcType=INTEGER})
+        insert into user (email,user.code,status)
+        values
+        (#{userInfo.email,jdbcType=VARCHAR},#{userInfo.code,jdbcType=VARCHAR},#{userInfo.status,jdbcType=INTEGER})
     </insert>
     <select id="check" resultType="java.lang.Integer">
         select id from user where email=#{user.email} and code=#{user.code}
@@ -18,7 +19,7 @@
         update user set password=#{passwordVO.newPwd} where id =#{param1.id} and password=#{param1.oldPwd}
     </update>
     <select id="checkUser" resultType="java.lang.Integer">
-        select  id from user where email=#{email} and password=#{password} and status=1
+        select id from user where email=#{email} and password=#{password} and status=1
     </select>
     <select id="selectUserInfoResult" resultType="house.rental.system.model.result.UserInfoResult">
         select id,username,email,phone from user where email=#{email} and password=#{password} and status=1

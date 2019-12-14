@@ -39,9 +39,9 @@ public class GuestRoomService {
 
     public List<GuestRoomResult> index(Integer id) {
         List<GuestRoomEntity> guestRoomEntityList;
-        guestRoomEntityList = guestRoomMapper.selectList(new QueryWrapper<GuestRoomEntity>().eq("user_id",id));
-        List<GuestRoomResult> guestRoomResultList = guestRoomEntityList.stream().map(p->{
-            GuestRoomResult  roomResult = DataUtil.convert(p,GuestRoomResult.class);
+        guestRoomEntityList = guestRoomMapper.selectList(new QueryWrapper<GuestRoomEntity>().eq("user_id", id));
+        List<GuestRoomResult> guestRoomResultList = guestRoomEntityList.stream().map(p -> {
+            GuestRoomResult roomResult = DataUtil.convert(p, GuestRoomResult.class);
             return roomResult;
         }).collect(Collectors.toList());
         return guestRoomResultList;
@@ -50,12 +50,12 @@ public class GuestRoomService {
 
     @Transactional(rollbackFor = Exception.class)
     public JSONResult store(OrderResult orderResult) {
-        GuestRoomEntity entity = DataUtil.convert(orderResult,GuestRoomEntity.class);
+        GuestRoomEntity entity = DataUtil.convert(orderResult, GuestRoomEntity.class);
         entity.setMoney(orderResult.getRental());
         entity.setUserId(orderResult.getUser_id());
         entity.setStatus(1);
         guestRoomMapper.insert(entity);
 
-        return JSONResult.success(orderMapper.insertOne(orderResult.getUser_id(),entity.getId()));
+        return JSONResult.success(orderMapper.insertOne(orderResult.getUser_id(), entity.getId()));
     }
 }

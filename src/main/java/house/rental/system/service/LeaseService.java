@@ -45,26 +45,25 @@ public class LeaseService {
     @Autowired
     GuestRoomMapper guestRoomMapper;
 
-    public JSONResult<List<LeaseResult>> index(Integer id){
+    public JSONResult<List<LeaseResult>> index(Integer id) {
 
         List<LeaseDto> leaseDto;
 
-        if (leaseMapper.checkId(id).size()!=0){
+        if (leaseMapper.checkId(id).size() != 0) {
             leaseDto = leaseMapper.indexOwn(id);
-        }
-        else {
+        } else {
             leaseDto = leaseMapper.indexTenant(id);
         }
-        List<LeaseResult>  list = leaseDto.stream().map(p->{
-            LeaseResult leaseResult = DataUtil.convert(p,LeaseResult.class);
+        List<LeaseResult> list = leaseDto.stream().map(p -> {
+            LeaseResult leaseResult = DataUtil.convert(p, LeaseResult.class);
             leaseResult.setCommission_id(p.getCommissionId());
             leaseResult.setTenant_id(p.getTenantId());
             leaseResult.setTime(p.getStartTime());
-            leaseResult.setMonths(String.valueOf((p.getEndTime().getYear()-p.getStartTime().getYear())*12
-                    +(p.getEndTime().getMonth().getValue()-p.getStartTime().getMonth().getValue())));
-            return  leaseResult;
+            leaseResult.setMonths(String.valueOf((p.getEndTime().getYear() - p.getStartTime().getYear()) * 12
+                    + (p.getEndTime().getMonth().getValue() - p.getStartTime().getMonth().getValue())));
+            return leaseResult;
         }).collect(Collectors.toList());
-        for (LeaseResult r:list) {
+        for (LeaseResult r : list) {
             System.out.println(r);
         }
         return JSONResult.success(list);
@@ -73,17 +72,17 @@ public class LeaseService {
     @Transactional(rollbackFor = Exception.class)
     public JSONResult store(LeaseVo leaseVo) {
         LeaseDto leaseDto = new LeaseDto();
-        if (leaseVo.getTime() != null){
+        if (leaseVo.getTime() != null) {
             LocalDateTime dateTime = DateUtils.timestampToLocalDateTime(leaseVo.getTime());
             leaseDto.setStartTime(dateTime);
-        } else{
+        } else {
             leaseDto.setStartTime(LocalDateTime.now(Clock.systemDefaultZone()));
         }
         Integer time = Integer.valueOf(leaseVo.getMonths());
         leaseDto.setEndTime(leaseDto.getStartTime().minusMonths(time));
         leaseDto.setCommissionId(leaseVo.getCommission_id());
         leaseDto.setTenantId(leaseVo.getTenant_id());
-        LeaseEntity entity = DataUtil.convert(leaseDto,LeaseEntity.class);
+        LeaseEntity entity = DataUtil.convert(leaseDto, LeaseEntity.class);
         leaseMapper.insert(entity);
 
         return JSONResult.success(guestRoomMapper.updateStatus(orderMapper.selectHouseId(leaseVo.getCommission_id())));

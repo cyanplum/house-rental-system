@@ -18,5 +18,5 @@ import org.springframework.stereotype.Component;
 @Component
 @ConfigurationProperties(prefix = "login")
 @Data
-public class PropertiesUtil  {
+public class PropertiesUtil {
 }

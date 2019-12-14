@@ -14,8 +14,8 @@ import java.util.UUID;
  * @date 2019/11/1215:46
  */
 public class UUIDUtils {
-    public static String getUUID(){
-        return UUID.randomUUID().toString().replace("-","");
+    public static String getUUID() {
+        return UUID.randomUUID().toString().replace("-", "");
     }
 
     public static String randomCode() {

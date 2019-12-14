@@ -14,7 +14,7 @@ import org.springframework.transaction.annotation.EnableTransactionManagement;
 
 @Configuration
 @EnableTransactionManagement
-@MapperScan("house.rental.system.aa.dao")
+@MapperScan("house.rental.system.dao")
 public class MybatisPlusConfig {
 
     /*public ISqlInjector sqlInjector() {
@@ -39,7 +39,6 @@ public class MybatisPlusConfig {
     public PerformanceInterceptor performanceInterceptor() {
         return new PerformanceInterceptor();
     }*/
-
     @Bean
     public OptimisticLockerInterceptor optimisticLockerInterceptor() {
         return new OptimisticLockerInterceptor();

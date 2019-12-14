@@ -28,8 +28,8 @@ public class OrderService {
 
     public JSONResult<List<OrderResult>> index(Integer id, String title) {
 
-        List<OrderResult> results = orderMapper.index(id,title).stream().map(p->{
-            OrderResult result = DataUtil.convert(p,OrderResult.class);
+        List<OrderResult> results = orderMapper.index(id, title).stream().map(p -> {
+            OrderResult result = DataUtil.convert(p, OrderResult.class);
             result.setUser_id(p.getUserId());
             result.setRental(p.getMoney());
             return result;

@@ -12,7 +12,7 @@ import java.util.List;
 
 /**
  * <p>
- *  前端控制器
+ * 前端控制器
  * </p>
  *
  * @author qmw
@@ -26,19 +26,19 @@ public class LeaseController {
     LeaseService leaseService;
 
     @GetMapping("/owner")
-    public JSONResult<List<LeaseResult>> indexOwner(@RequestParam("ownerId") Integer id){
+    public JSONResult<List<LeaseResult>> indexOwner(@RequestParam("ownerId") Integer id) {
 
         return leaseService.index(id);
     }
 
     @GetMapping("/tenant")
-    public JSONResult<List<LeaseResult>> indexTenant(@RequestParam("tenantId") Integer id){
+    public JSONResult<List<LeaseResult>> indexTenant(@RequestParam("tenantId") Integer id) {
 
         return leaseService.index(id);
     }
 
     @PostMapping
-    public JSONResult store(@RequestBody LeaseVo leaseVo){
+    public JSONResult store(@RequestBody LeaseVo leaseVo) {
 
         return leaseService.store(leaseVo);
     }

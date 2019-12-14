@@ -23,6 +23,6 @@ public class UserService {
     UserMapper userMapper;
 
     public Response updatePassword(PasswordVo passwordVO) {
-        return userMapper.updatePassword(passwordVO)==1 ? Response.success() : Response.fail("修改密码失败") ;
+        return userMapper.updatePassword(passwordVO) == 1 ? Response.success() : Response.fail("修改密码失败");
     }
 }

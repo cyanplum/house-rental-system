@@ -13,7 +13,7 @@ import java.util.List;
 
 /**
  * <p>
- *  前端控制器
+ * 前端控制器
  * </p>
  *
  * @author qmw
@@ -31,13 +31,13 @@ public class OrderController {
 
 
     @GetMapping
-    public JSONResult<List<OrderResult>> index(@RequestParam(value = "ownerId",required = false) Integer id,
-                                               @RequestParam(value = "title",required = false)String title ){
-        return orderService.index(id,title);
+    public JSONResult<List<OrderResult>> index(@RequestParam(value = "ownerId", required = false) Integer id,
+                                               @RequestParam(value = "title", required = false) String title) {
+        return orderService.index(id, title);
     }
 
     @PostMapping
-    public JSONResult store(@RequestBody OrderResult orderResult){
+    public JSONResult store(@RequestBody OrderResult orderResult) {
         return guestRoomService.store(orderResult);
     }
 }

@@ -14,11 +14,11 @@ import lombok.Data;
  */
 @Data
 public class PasswordVo {
-    
+
     private Integer id;
-    
+
     private String oldPwd;
-    
+
     private String newPwd;
-    
+
 }

@@ -31,15 +31,14 @@ public class LoginController {
     LoginService loginService;
 
 
-
     @PostMapping
-    public JSONResult registered(@RequestBody UserInfo userInfo){
+    public JSONResult registered(@RequestBody UserInfo userInfo) {
         return loginService.register(userInfo);
     }
 
     @GetMapping
-    public JSONResult<UserInfoResult> login(@RequestParam("email") String email,@RequestParam("password") String password){
-        return loginService.loginUser(email,password);
+    public JSONResult<UserInfoResult> login(@RequestParam("email") String email, @RequestParam("password") String password) {
+        return loginService.loginUser(email, password);
     }
 
 }
