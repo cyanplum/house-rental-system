@@ -37,7 +37,7 @@ public class JSONResult<T> extends ResponseEntity<Message> {
     }
 
     public static <T> JSONResult<T> success(String message) {
-        return new JSONResult("200",message);
+        return new JSONResult("200",message,JSON.toJSON(new Object()));
     }
 
     public static <T> JSONResult<T> failed(T data) {

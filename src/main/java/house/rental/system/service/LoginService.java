@@ -36,8 +36,8 @@ public class LoginService {
     public JSONResult register(UserInfo user) {
         if (user.getCode() != null) {
             if (userMapper.check(user) != null) {
-
-                return JSONResult.success(userMapper.updateStatus(user),"注册成功");
+                userMapper.updateStatus(user);
+                return JSONResult.success("注册成功");
             }
             else {
                 return JSONResult.failMsg("验证码错误");
