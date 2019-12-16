@@ -32,6 +32,14 @@ public class JSONResult<T> extends ResponseEntity<Message> {
         return new JSONResult("200", "成功", data);
     }
 
+    public static <T> JSONResult<T> success(T data,String message) {
+        return new JSONResult("200", message, data);
+    }
+
+    public static <T> JSONResult<T> success(String message) {
+        return new JSONResult("200",message);
+    }
+
     public static <T> JSONResult<T> failed(T data) {
         return new JSONResult("404", "失败", data);
     }

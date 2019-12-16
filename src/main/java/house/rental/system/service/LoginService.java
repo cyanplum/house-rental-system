@@ -37,7 +37,7 @@ public class LoginService {
         if (user.getCode() != null) {
             if (userMapper.check(user) != null) {
 
-                return JSONResult.success(userMapper.updateStatus(user));
+                return JSONResult.success(userMapper.updateStatus(user),"注册成功");
             }
             else {
                 return JSONResult.failMsg("验证码错误");
@@ -61,7 +61,7 @@ public class LoginService {
             String context = code;
             //发送激活邮件
             emailService.sendSimpleMail(user.getEmail(), subject, context);
-            return JSONResult.success("1");
+            return JSONResult.success("验证码已发送");
         }
     }
 
