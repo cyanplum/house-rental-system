@@ -45,14 +45,14 @@ public class LeaseService {
     @Autowired
     GuestRoomMapper guestRoomMapper;
 
-    public JSONResult<List<LeaseResult>> index(Integer id) {
+    public JSONResult<List<LeaseResult>> index(Integer ownerId,Integer tenantId) {
 
         List<LeaseDto> leaseDto;
 
-        if (leaseMapper.checkId(id).size() != 0) {
-            leaseDto = leaseMapper.indexOwn(id);
+        if (leaseMapper.checkId(ownerId).size() != 0 && ownerId!=null) {
+            leaseDto = leaseMapper.indexOwn(ownerId);
         } else {
-            leaseDto = leaseMapper.indexTenant(id);
+            leaseDto = leaseMapper.indexTenant(tenantId);
         }
         List<LeaseResult> list = leaseDto.stream().map(p -> {
             LeaseResult leaseResult = DataUtil.convert(p, LeaseResult.class);
