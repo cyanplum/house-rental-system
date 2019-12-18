@@ -12,10 +12,35 @@
         <a href="https:www.baidu.com" style="text-decoration: none;color: black">修改密码</a>
     </div>
     <div class="header_body">
-        <a href="https:www.baidu.com">查看房屋</a>
+        <a href="/admin/getHouse">查看房屋</a>
         <a href="https:www.baidu.com">添加房屋</a>
         <a href="https:www.baidu.com">修改房屋</a>
         <a href="https:www.baidu.com">查看租客</a>
+
+    </div>
+    <table border="1">
+        <tr>
+            <th>id</th>
+            <th>money</th>
+            <th>address</th>
+            <th>area</th>
+            <th>userId</th>
+            <th>title</th>
+            <th>description</th>
+            <th>status</th>
+        </tr>
+
+        <tr th:each="u : ${houseResult}">
+            <td th:text="${u.id}"></td>
+            <td th:text="${u.address}"></td>
+            <td th:text="${u.area}"></td>
+            <td th:text="${u.userId}"></td>
+            <td th:text="${u.title}"></td>
+            <td th:text="${u.description}"></td>
+            <td th:text="${u.status}"></td>
+        </tr>
+    </table>
+    <div>
     </div>
 </div>
 </body>

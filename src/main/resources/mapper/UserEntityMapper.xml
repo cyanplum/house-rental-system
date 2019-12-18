@@ -27,4 +27,7 @@
     <select id="login" resultType="java.lang.String">
         select username from user where phone=#{username} and password =#{password}
     </select>
+    <select id="getHouser" resultType="house.rental.system.model.result.HouseResult">
+        select * from guest_room
+    </select>
 </mapper>

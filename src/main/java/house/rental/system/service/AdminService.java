@@ -1,8 +1,11 @@
 package house.rental.system.service;
 
 import house.rental.system.dao.UserMapper;
+import house.rental.system.model.result.HouseResult;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+
+import java.util.List;
 
 /**
  * @author create by:
@@ -25,5 +28,9 @@ public class AdminService {
         String name = userMapper.login(username,password);
 
         return name;
+    }
+
+    public List<HouseResult> getHouse() {
+        return userMapper.getHouser();
     }
 }
