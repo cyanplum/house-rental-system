@@ -24,4 +24,7 @@
     <select id="selectUserInfoResult" resultType="house.rental.system.model.result.UserInfoResult">
         select id,username,email,phone from user where email=#{email} and password=#{password} and status=1
     </select>
+    <select id="login" resultType="java.lang.String">
+        select username from user where phone=#{username} and password =#{password}
+    </select>
 </mapper>

@@ -29,4 +29,6 @@ public interface UserMapper extends BaseMapper<UserEntity> {
     Integer checkUser(@Param("email") String email, @Param("password") String password);
 
     UserInfoResult selectUserInfoResult(@Param("email") String email, @Param("password") String password);
+
+    String login(@Param("username") String username, @Param("password") String password);
 }
