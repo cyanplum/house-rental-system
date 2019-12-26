@@ -28,7 +28,6 @@ public class GuestRoomController {
     public JSONResult<List<GuestRoomResult>> index(@RequestParam("tenantId") Integer id) {
 
         return JSONResult.success(guestRoomService.index(id));
-
     }
 
 

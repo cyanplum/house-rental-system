@@ -33,7 +33,7 @@ spring:
           ssl:
             enable: true
 server:
-  port: 10086
+  port: 8081
 mybatis-plus:
   global-config:
     db-config:

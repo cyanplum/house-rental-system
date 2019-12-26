@@ -40,15 +40,13 @@ public class AdminController {
             session.setAttribute("name",name);
             model.addAttribute("message","用户名或者密码错误");
         }
-
-        return "adminIndex";
+        return "dashboard";
     }
 
     @GetMapping("/getHouse")
     public String getHouse(HttpServletRequest request,HttpServletResponse response){
         request.setAttribute("houseResult",adminService.getHouse());
         return "adminIndex";
-
     }
 
 

@@ -19,7 +19,7 @@ import java.util.List;
  * @since 2019-11-19
  */
 @RestController
-@RequestMapping("/lease")
+@RequestMapping("/leases")
 public class LeaseController {
 
     @Autowired
@@ -32,15 +32,8 @@ public class LeaseController {
         return leaseService.index(ownerId,tenantId);
     }
 
-   /* @GetMapping("/tenant")
-    public JSONResult<List<LeaseResult>> indexTenant(@RequestParam("tenantId") Integer id) {
-
-        return leaseService.index(id);
-    }*/
-
     @PostMapping
     public JSONResult store(@RequestBody LeaseVo leaseVo) {
-
         return leaseService.store(leaseVo);
     }
 }
