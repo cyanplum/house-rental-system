@@ -79,7 +79,7 @@ public class LeaseService {
             leaseDto.setStartTime(LocalDateTime.now(Clock.systemDefaultZone()));
         }
         Integer time = Integer.valueOf(leaseVo.getMonths());
-        leaseDto.setEndTime(leaseDto.getStartTime().minusMonths(time));
+        leaseDto.setEndTime(leaseDto.getStartTime().plusMonths(time));
         leaseDto.setCommissionId(leaseVo.getCommission_id());
         leaseDto.setTenantId(leaseVo.getTenant_id());
         LeaseEntity entity = DataUtil.convert(leaseDto, LeaseEntity.class);

@@ -37,4 +37,5 @@ public interface UserMapper extends BaseMapper<UserEntity> {
 
     List<HouseResult> getHouser();
 
+    void updateCode(@Param("code") String code, @Param("email") String email);
 }

@@ -48,10 +48,19 @@ public class LoginService {
             user.setCode(UUIDUtils.randomCode());
             String code = user.getCode();
             user.setStatus(0);
-            if (userMapper.selectIdByEmail(user.getEmail()) != null) {
+            Integer status= null;
+                    status = userMapper.selectIdByEmail(user.getEmail());
+            System.out.println(status);
+            if (status == null){
+                userMapper.insertUser(user);
+            }
+            else if ( status == 1) {
                 return JSONResult.failMsg("该邮箱已被使用！");
             }
-            userMapper.insertUser(user);
+            else {
+                userMapper.updateCode(code,user.getEmail());
+            }
+
             System.out.println("code:" + code);
             //主题
             String subject = "来自xxx网站的激活邮件";

@@ -33,4 +33,5 @@ public class AdminService {
     public List<HouseResult> getHouse() {
         return userMapper.getHouser();
     }
+
 }
